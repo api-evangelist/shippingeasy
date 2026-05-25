@@ -1,0 +1,150 @@
+aid: shippingeasy
+url: https://raw.githubusercontent.com/api-evangelist/shippingeasy/refs/heads/main/apis.yml
+name: ShippingEasy
+kind: company
+description: >-
+  ShippingEasy is an Austin, Texas shipping software platform for online
+  merchants, providing multi-carrier label printing with discounted USPS, UPS,
+  FedEx, and DHL rates, automated order import and workflow rules, inventory
+  and product management, branded tracking, customer email marketing, and
+  reporting. ShippingEasy was acquired by Stamps.com in 2016 and is part of
+  the Auctane portfolio of shipping brands, which also includes ShipStation,
+  ShipEngine, ShipWorks, MetaPack, Packlink, and Endicia. The company exposes
+  a public Customer API focused on sending orders into ShippingEasy from
+  custom marketplaces or storefronts not already covered by the built-in
+  integration catalog; for fuller multi-carrier label, rate, and tracking
+  APIs, ShippingEasy directs developers to sister brand ShipEngine.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Shipping
+  - Logistics
+  - Multi-Carrier
+  - Labels
+  - Order Management
+  - Ecommerce
+  - Auctane
+  - Stamps.com
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+apis:
+  - aid: shippingeasy:shippingeasy-customer-api
+    name: ShippingEasy Customer API
+    tags:
+      - Orders
+      - Stores
+      - Order Management
+      - Shipping
+      - Ecommerce
+    humanURL: https://shippingeasy.readme.io/reference/getting-started
+    baseURL: https://app.shippingeasy.com/api
+    properties:
+      - url: https://shippingeasy.readme.io/reference/getting-started
+        type: Documentation
+      - url: https://shippingeasy.readme.io/reference/getting-started
+        type: APIReference
+      - url: https://shippingeasy.readme.io/reference/authentication-signing-requests
+        type: Authentication
+      - url: https://shippingeasy.readme.io/reference/rate-limits-and-throttling
+        type: RateLimits
+      - url: openapi/shippingeasy-customer-api-openapi.yml
+        type: OpenAPI
+      - url: https://github.com/ShippingEasy/shippingeasy-api-examples
+        type: PostmanCollection
+      - url: https://app.shippingeasy.com/settings/api_credentials
+        type: Signup
+      - url: api-questions@shippingeasy.com
+        type: Support
+    description: >-
+      The ShippingEasy Customer API is an HMAC-SHA256 signed REST API that lets
+      a merchant push orders into their own ShippingEasy account from a custom
+      marketplace, storefront, or backoffice system that is not already covered
+      by ShippingEasy's built-in integration catalog (Shopify, Amazon, eBay,
+      WooCommerce, BigCommerce, Magento, Etsy, Walmart, Squarespace, etc.).
+      Operations cover listing API-enabled stores, creating an order, looking
+      up orders by ID, external order number, or store, updating order status,
+      and cancelling an order. Credentials (API key, API secret, and per-store
+      API key) are generated inside the ShippingEasy UI at Settings > Account
+      Settings > API Credentials.
+common:
+  - type: Website
+    url: https://shippingeasy.com
+  - type: Pricing
+    url: https://shippingeasy.com/pricing/
+  - type: Features
+    url: https://shippingeasy.com/features/
+  - type: Integrations
+    url: https://shippingeasy.com/integrationpartners/
+  - type: ShippingAPI
+    url: https://shippingeasy.com/shipping-api/
+  - type: Documentation
+    url: https://shippingeasy.readme.io/reference/getting-started
+  - type: Signup
+    url: https://app.shippingeasy.com/customer/new
+  - type: Login
+    url: https://app.shippingeasy.com/login
+  - type: APICredentials
+    url: https://app.shippingeasy.com/settings/api_credentials
+  - type: Support
+    url: https://support.shippingeasy.com
+  - type: Blog
+    url: https://shippingeasy.com/blog/
+  - type: Careers
+    url: https://shippingeasy.com/careers/
+  - type: Parent
+    url: https://auctane.com
+  - type: SisterBrand
+    url: https://www.shipengine.com/
+  - type: GitHubOrganization
+    url: https://github.com/ShippingEasy
+  - type: Twitter
+    url: https://twitter.com/ShippingEasy
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/shippingeasy
+  - type: Facebook
+    url: https://www.facebook.com/ShippingEasy
+  - type: YouTube
+    url: https://www.youtube.com/user/ShippingEasy
+  - type: TermsOfService
+    url: https://shippingeasy.com/terms-of-service/
+  - type: PrivacyPolicy
+    url: https://shippingeasy.com/privacy-policy/
+sdks:
+  - name: ShippingEasy PHP Client
+    url: https://github.com/ShippingEasy/shipping_easy-php
+    language: PHP
+  - name: ShippingEasy Ruby Client
+    url: https://github.com/ShippingEasy/shipping_easy-ruby
+    language: Ruby
+  - name: ShippingEasy JavaScript Client
+    url: https://github.com/ShippingEasy/shipping_easy-js
+    language: JavaScript
+  - name: ShippingEasy .NET Client
+    url: https://github.com/ShippingEasy/shipping_easy-dotnet
+    language: C#
+  - name: Insomnia Plugin for ShippingEasy API
+    url: https://github.com/ShippingEasy/insomnia-plugin-shippingeasy-api
+    language: JavaScript
+  - name: ShippingEasy API Bruno Examples
+    url: https://github.com/ShippingEasy/shippingeasy-api-examples
+    language: Bruno
+integrations:
+  - name: Shopify
+  - name: Amazon
+  - name: eBay
+  - name: Etsy
+  - name: Walmart
+  - name: WooCommerce
+  - name: BigCommerce
+  - name: Magento
+  - name: Volusion
+  - name: Squarespace
+  - name: 3dcart
+  - name: QuickBooks
+  - name: USPS
+  - name: UPS
+  - name: FedEx
+  - name: DHL
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

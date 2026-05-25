@@ -1,0 +1,21 @@
+name: ShippingEasy
+description: ShippingEasy — Austin-based shipping software (Auctane / Stamps.com subsidiary) — API Evangelist review.
+url: https://raw.githubusercontent.com/api-evangelist/shippingeasy/refs/heads/main/review.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+reviews:
+  - date: '2026-05-25'
+    rating: 3
+    summary: >-
+      ShippingEasy is a long-running Austin shipping platform now sitting inside
+      the Auctane portfolio alongside ShipStation, ShipEngine, ShipWorks, and
+      Endicia. Public API surface is intentionally narrow: a single Customer
+      API focused on receiving orders from custom marketplaces and storefronts,
+      authenticated with an HMAC-SHA256 signature over the request method,
+      path, and sorted query string. Reference docs live on ReadMe at
+      shippingeasy.readme.io, and ShippingEasy publishes Bruno examples plus
+      official PHP, Ruby, JavaScript, and .NET client libraries on GitHub.
+      ShippingEasy explicitly directs developers wanting full multi-carrier
+      label / rate / tracking APIs to sister brand ShipEngine, so this profile
+      is best read as a narrow custom-order ingestion surface for the
+      ShippingEasy fulfillment workflow, not a full shipping API.
