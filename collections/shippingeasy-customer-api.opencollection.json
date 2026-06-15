@@ -1,0 +1,204 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ShippingEasy Customer API",
+    "version": "1.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List API-Enabled Stores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.shippingeasy.com/api/stores"
+          },
+          "docs": "Return the API-enabled stores in the authenticated ShippingEasy account, including each store's `api_key` value used for store-scoped order calls."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.shippingeasy.com/api/orders",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Optional order status filter."
+              }
+            ]
+          },
+          "docs": "Search orders across all API-enabled stores in the account, optionally filtered by order status."
+        },
+        {
+          "info": {
+            "name": "Find Order by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.shippingeasy.com/api/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ShippingEasy internal order identifier."
+              }
+            ]
+          },
+          "docs": "Return a single order by its ShippingEasy internal numeric identifier."
+        },
+        {
+          "info": {
+            "name": "Find Orders by Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.shippingeasy.com/api/stores/:store_api_key/orders",
+            "params": [
+              {
+                "name": "store_api_key",
+                "value": "",
+                "type": "path",
+                "description": "Per-store API key returned by GET /stores."
+              }
+            ]
+          },
+          "docs": "Return orders scoped to a single API-enabled store."
+        },
+        {
+          "info": {
+            "name": "Create Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.shippingeasy.com/api/stores/:store_api_key/orders",
+            "params": [
+              {
+                "name": "store_api_key",
+                "value": "",
+                "type": "path",
+                "description": "Per-store API key returned by GET /stores."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new order on the given API-enabled store. Orders are addressed by an `external_order_identifier` supplied by the caller and are routed into the merchant's normal ShippingEasy workflows."
+        },
+        {
+          "info": {
+            "name": "Find Order by External Order Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.shippingeasy.com/api/stores/:store_api_key/orders/:external_order_identifier",
+            "params": [
+              {
+                "name": "store_api_key",
+                "value": "",
+                "type": "path",
+                "description": "Per-store API key returned by GET /stores."
+              },
+              {
+                "name": "external_order_identifier",
+                "value": "",
+                "type": "path",
+                "description": "Caller-supplied unique order number for the order on the originating store."
+              }
+            ]
+          },
+          "docs": "Return a single order by the caller-supplied external order number on the specified store."
+        },
+        {
+          "info": {
+            "name": "Update Order Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.shippingeasy.com/api/stores/:store_api_key/orders/:external_order_identifier/status",
+            "params": [
+              {
+                "name": "store_api_key",
+                "value": "",
+                "type": "path",
+                "description": "Per-store API key returned by GET /stores."
+              },
+              {
+                "name": "external_order_identifier",
+                "value": "",
+                "type": "path",
+                "description": "Caller-supplied unique order number for the order on the originating store."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the order_status of a single order in the specified store."
+        },
+        {
+          "info": {
+            "name": "Cancel Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.shippingeasy.com/api/stores/:store_api_key/orders/:order_number/cancellations",
+            "params": [
+              {
+                "name": "store_api_key",
+                "value": "",
+                "type": "path",
+                "description": "Per-store API key returned by GET /stores."
+              },
+              {
+                "name": "order_number",
+                "value": "",
+                "type": "path",
+                "description": "Store-scoped order number."
+              }
+            ]
+          },
+          "docs": "Cancel a single order on the specified store."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
