@@ -14,7 +14,7 @@ description: >-
   custom marketplaces or storefronts not already covered by the built-in
   integration catalog; for fuller multi-carrier label, rate, and tracking
   APIs, ShippingEasy directs developers to sister brand ShipEngine.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Shipping
   - Logistics
