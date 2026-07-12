@@ -67,6 +67,10 @@ apis:
       API key) are generated inside the ShippingEasy UI at Settings > Account
       Settings > API Credentials.
 common:
+  - type: DomainSecurity
+    url: security/shippingeasy-domain-security.yml
+  - type: Authentication
+    url: authentication/shippingeasy-authentication.yml
   - type: Website
     url: https://shippingeasy.com
   - type: Pricing

@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/shippingeasy-customer-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKey
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: Account API key. Generated at https://app.shippingeasy.com/settings/api_credentials.
+  sources:
+  - openapi/shippingeasy-customer-api-openapi.yml
+- name: apiTimestamp
+  type: apiKey
+  in: query
+  parameter: api_timestamp
+  description: Unix epoch seconds when the request signature was generated.
+  sources:
+  - openapi/shippingeasy-customer-api-openapi.yml
+- name: apiSignature
+  type: apiKey
+  in: query
+  parameter: api_signature
+  description: HMAC-SHA256 hex digest of the canonical request string computed with the account's
+    API secret.
+  sources:
+  - openapi/shippingeasy-customer-api-openapi.yml
