@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: ShippingEasy Customer Orders Stores API
+  version: '1.2'
+  description: 'The ShippingEasy Customer API lets a merchant push orders into their own
+
+    ShippingEasy account from a custom marketplace, storefront, or backoffice
+
+    system that is not already covered by ShippingEasy''s built-in integration
+
+    catalog. Authentication is HMAC-SHA256 signed; requests carry
+
+    `api_key`, `api_timestamp`, and `api_signature` query parameters. The
+
+    signature is computed over the HTTP method, request path, and the
+
+    alphabetically-sorted set of query parameters (excluding the signature
+
+    itself) using the account''s API secret.
+
+    '
+  contact:
+    name: ShippingEasy API Support
+    email: api-questions@shippingeasy.com
+    url: https://shippingeasy.readme.io/reference/getting-started
+  license:
+    name: Proprietary
+    url: https://shippingeasy.com/terms-of-service/
+servers:
+- url: https://app.shippingeasy.com/api
+  description: Production
+security:
+- apiKey: []
+  apiTimestamp: []
+  apiSignature: []
+tags:
+- name: Stores
+  description: API-enabled stores configured in the ShippingEasy account.
+paths:
+  /stores:
+    get:
+      tags:
+      - Stores
+      summary: List API-Enabled Stores
+      description: Return the API-enabled stores in the authenticated ShippingEasy account, including each store's `api_key` value used for store-scoped order calls.
+      operationId: listStores
+      responses:
+        '200':
+          description: Stores list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid signature.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    StoreList:
+      type: object
+      properties:
+        stores:
+          type: array
+          items:
+            $ref: '#/components/schemas/Store'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+        message:
+          type: string
+    Store:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        platform:
+          type: string
+        api_key:
+          type: string
+          description: Per-store API key used to scope order calls.
+        status:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Account API key. Generated at https://app.shippingeasy.com/settings/api_credentials.
+    apiTimestamp:
+      type: apiKey
+      in: query
+      name: api_timestamp
+      description: Unix epoch seconds when the request signature was generated.
+    apiSignature:
+      type: apiKey
+      in: query
+      name: api_signature
+      description: HMAC-SHA256 hex digest of the canonical request string computed with the account's API secret.
