@@ -14,7 +14,19 @@ description: >-
   custom marketplaces or storefronts not already covered by the built-in
   integration catalog; for fuller multi-carrier label, rate, and tracking
   APIs, ShippingEasy directs developers to sister brand ShipEngine.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shippingeasy.png
 tags:
   - Shipping
   - Logistics
@@ -28,44 +40,54 @@ created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.20'
 apis:
-  - aid: shippingeasy:shippingeasy-customer-api
-    name: ShippingEasy Customer API
-    tags:
-      - Orders
-      - Stores
-      - Order Management
-      - Shipping
-      - Ecommerce
-    humanURL: https://shippingeasy.readme.io/reference/getting-started
-    baseURL: https://app.shippingeasy.com/api
-    properties:
-      - url: https://shippingeasy.readme.io/reference/getting-started
-        type: Documentation
-      - url: https://shippingeasy.readme.io/reference/getting-started
-        type: APIReference
-      - url: https://shippingeasy.readme.io/reference/authentication-signing-requests
-        type: Authentication
-      - url: https://shippingeasy.readme.io/reference/rate-limits-and-throttling
-        type: RateLimits
-      - url: openapi/shippingeasy-customer-api-openapi.yml
-        type: OpenAPI
-      - url: https://github.com/ShippingEasy/shippingeasy-api-examples
-        type: PostmanCollection
-      - url: https://app.shippingeasy.com/settings/api_credentials
-        type: Signup
-      - url: api-questions@shippingeasy.com
-        type: Support
-    description: >-
-      The ShippingEasy Customer API is an HMAC-SHA256 signed REST API that lets
-      a merchant push orders into their own ShippingEasy account from a custom
-      marketplace, storefront, or backoffice system that is not already covered
-      by ShippingEasy's built-in integration catalog (Shopify, Amazon, eBay,
-      WooCommerce, BigCommerce, Magento, Etsy, Walmart, Squarespace, etc.).
-      Operations cover listing API-enabled stores, creating an order, looking
-      up orders by ID, external order number, or store, updating order status,
-      and cancelling an order. Credentials (API key, API secret, and per-store
-      API key) are generated inside the ShippingEasy UI at Settings > Account
-      Settings > API Credentials.
+- aid: shippingeasy:shippingeasy-orders-api
+  name: ShippingEasy Orders API
+  description: Order create, look up, status update, and cancellation.
+  humanURL: https://shippingeasy.readme.io/reference/getting-started
+  baseURL: https://app.shippingeasy.com/api
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/shippingeasy-orders-api-openapi.yml
+  - type: Documentation
+    url: https://shippingeasy.readme.io/reference/getting-started
+  - type: APIReference
+    url: https://shippingeasy.readme.io/reference/getting-started
+  - type: Authentication
+    url: https://shippingeasy.readme.io/reference/authentication-signing-requests
+  - type: RateLimits
+    url: https://shippingeasy.readme.io/reference/rate-limits-and-throttling
+  - type: PostmanCollection
+    url: https://github.com/ShippingEasy/shippingeasy-api-examples
+  - type: Signup
+    url: https://app.shippingeasy.com/settings/api_credentials
+  - type: Support
+    url: api-questions@shippingeasy.com
+- aid: shippingeasy:shippingeasy-stores-api
+  name: ShippingEasy Stores API
+  description: API-enabled stores configured in the ShippingEasy account.
+  humanURL: https://shippingeasy.readme.io/reference/getting-started
+  baseURL: https://app.shippingeasy.com/api
+  tags:
+  - Stores
+  properties:
+  - type: OpenAPI
+    url: openapi/shippingeasy-stores-api-openapi.yml
+  - type: Documentation
+    url: https://shippingeasy.readme.io/reference/getting-started
+  - type: APIReference
+    url: https://shippingeasy.readme.io/reference/getting-started
+  - type: Authentication
+    url: https://shippingeasy.readme.io/reference/authentication-signing-requests
+  - type: RateLimits
+    url: https://shippingeasy.readme.io/reference/rate-limits-and-throttling
+  - type: PostmanCollection
+    url: https://github.com/ShippingEasy/shippingeasy-api-examples
+  - type: Signup
+    url: https://app.shippingeasy.com/settings/api_credentials
+  - type: Support
+    url: api-questions@shippingeasy.com
 common:
   - type: AgenticAccess
     url: agentic-access/shippingeasy-agentic-access.yml
