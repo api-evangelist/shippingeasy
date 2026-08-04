@@ -1,0 +1,417 @@
+openapi: 3.1.0
+info:
+  title: ShippingEasy Customer API
+  version: '1.2'
+  description: |
+    The ShippingEasy Customer API lets a merchant push orders into their own
+    ShippingEasy account from a custom marketplace, storefront, or backoffice
+    system that is not already covered by ShippingEasy's built-in integration
+    catalog. Authentication is HMAC-SHA256 signed; requests carry
+    `api_key`, `api_timestamp`, and `api_signature` query parameters. The
+    signature is computed over the HTTP method, request path, and the
+    alphabetically-sorted set of query parameters (excluding the signature
+    itself) using the account's API secret.
+  contact:
+    name: ShippingEasy API Support
+    email: api-questions@shippingeasy.com
+    url: https://shippingeasy.readme.io/reference/getting-started
+  license:
+    name: Proprietary
+    url: https://shippingeasy.com/terms-of-service/
+servers:
+  - url: https://app.shippingeasy.com/api
+    description: Production
+tags:
+  - name: Stores
+    description: API-enabled stores configured in the ShippingEasy account.
+  - name: Orders
+    description: Order create, look up, status update, and cancellation.
+security:
+  - apiKey: []
+    apiTimestamp: []
+    apiSignature: []
+paths:
+  /stores:
+    get:
+      tags:
+        - Stores
+      summary: List API-Enabled Stores
+      description: Return the API-enabled stores in the authenticated ShippingEasy account, including each store's `api_key` value used for store-scoped order calls.
+      operationId: listStores
+      responses:
+        '200':
+          description: Stores list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /orders:
+    get:
+      tags:
+        - Orders
+      summary: Find Orders
+      description: Search orders across all API-enabled stores in the account, optionally filtered by order status.
+      operationId: findOrders
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum:
+              - awaiting_payment
+              - awaiting_shipment
+              - ready_for_shipment
+              - shipped
+              - on_hold
+              - cancelled
+          description: Optional order status filter.
+      responses:
+        '200':
+          description: Order search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /orders/{id}:
+    get:
+      tags:
+        - Orders
+      summary: Find Order by ID
+      description: Return a single order by its ShippingEasy internal numeric identifier.
+      operationId: findOrderById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ShippingEasy internal order identifier.
+      responses:
+        '200':
+          description: Order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderEnvelope'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /stores/{store_api_key}/orders:
+    get:
+      tags:
+        - Orders
+      summary: Find Orders by Store
+      description: Return orders scoped to a single API-enabled store.
+      operationId: findOrdersByStore
+      parameters:
+        - $ref: '#/components/parameters/StoreApiKey'
+      responses:
+        '200':
+          description: Orders list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      tags:
+        - Orders
+      summary: Create Order
+      description: Create a new order on the given API-enabled store. Orders are addressed by an `external_order_identifier` supplied by the caller and are routed into the merchant's normal ShippingEasy workflows.
+      operationId: createOrder
+      parameters:
+        - $ref: '#/components/parameters/StoreApiKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderEnvelope'
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderEnvelope'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+  /stores/{store_api_key}/orders/{external_order_identifier}:
+    get:
+      tags:
+        - Orders
+      summary: Find Order by External Order Number
+      description: Return a single order by the caller-supplied external order number on the specified store.
+      operationId: findOrderByExternalOrderNumber
+      parameters:
+        - $ref: '#/components/parameters/StoreApiKey'
+        - $ref: '#/components/parameters/ExternalOrderIdentifier'
+      responses:
+        '200':
+          description: Order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderEnvelope'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /stores/{store_api_key}/orders/{external_order_identifier}/status:
+    put:
+      tags:
+        - Orders
+      summary: Update Order Status
+      description: Update the order_status of a single order in the specified store.
+      operationId: updateOrderStatus
+      parameters:
+        - $ref: '#/components/parameters/StoreApiKey'
+        - $ref: '#/components/parameters/ExternalOrderIdentifier'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order:
+                  type: object
+                  properties:
+                    order_status:
+                      type: string
+                      enum:
+                        - awaiting_payment
+                        - awaiting_shipment
+                        - ready_for_shipment
+                        - shipped
+                        - on_hold
+                        - cancelled
+                  required:
+                    - order_status
+              required:
+                - order
+      responses:
+        '200':
+          description: Order status updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderEnvelope'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /stores/{store_api_key}/orders/{order_number}/cancellations:
+    post:
+      tags:
+        - Orders
+      summary: Cancel Order
+      description: Cancel a single order on the specified store.
+      operationId: cancelOrder
+      parameters:
+        - $ref: '#/components/parameters/StoreApiKey'
+        - in: path
+          name: order_number
+          required: true
+          schema:
+            type: string
+          description: Store-scoped order number.
+      responses:
+        '200':
+          description: Order cancelled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderEnvelope'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Account API key. Generated at https://app.shippingeasy.com/settings/api_credentials.
+    apiTimestamp:
+      type: apiKey
+      in: query
+      name: api_timestamp
+      description: Unix epoch seconds when the request signature was generated.
+    apiSignature:
+      type: apiKey
+      in: query
+      name: api_signature
+      description: HMAC-SHA256 hex digest of the canonical request string computed with the account's API secret.
+  parameters:
+    StoreApiKey:
+      in: path
+      name: store_api_key
+      required: true
+      schema:
+        type: string
+      description: Per-store API key returned by GET /stores.
+    ExternalOrderIdentifier:
+      in: path
+      name: external_order_identifier
+      required: true
+      schema:
+        type: string
+      description: Caller-supplied unique order number for the order on the originating store.
+  responses:
+    Unauthorized:
+      description: Missing or invalid signature.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unprocessable:
+      description: Validation error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+        message:
+          type: string
+    Store:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        platform:
+          type: string
+        api_key:
+          type: string
+          description: Per-store API key used to scope order calls.
+        status:
+          type: string
+    StoreList:
+      type: object
+      properties:
+        stores:
+          type: array
+          items:
+            $ref: '#/components/schemas/Store'
+    Recipient:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        company:
+          type: string
+        address:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
+        phone_number:
+          type: string
+        email:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+    LineItem:
+      type: object
+      properties:
+        sku:
+          type: string
+        name:
+          type: string
+        quantity:
+          type: integer
+        unit_price:
+          type: number
+          format: float
+        weight_in_ounces:
+          type: number
+          format: float
+    Order:
+      type: object
+      properties:
+        external_order_identifier:
+          type: string
+        ordered_at:
+          type: string
+          format: date-time
+        order_status:
+          type: string
+          enum:
+            - awaiting_payment
+            - awaiting_shipment
+            - ready_for_shipment
+            - shipped
+            - on_hold
+            - cancelled
+        billing_company:
+          type: string
+        billing_first_name:
+          type: string
+        billing_last_name:
+          type: string
+        billing_address:
+          type: string
+        billing_address2:
+          type: string
+        billing_city:
+          type: string
+        billing_state:
+          type: string
+        billing_postal_code:
+          type: string
+        billing_country:
+          type: string
+        billing_phone_number:
+          type: string
+        billing_email:
+          type: string
+        recipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+    OrderEnvelope:
+      type: object
+      properties:
+        order:
+          $ref: '#/components/schemas/Order'
+    OrderList:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        meta:
+          type: object
+          properties:
+            page:
+              type: integer
+            total_pages:
+              type: integer
+            total_count:
+              type: integer

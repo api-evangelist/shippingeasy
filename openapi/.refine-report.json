@@ -1,0 +1,16 @@
+{
+  "provider": "shippingeasy",
+  "sources": [
+    "shippingeasy-orders-api-openapi.yml",
+    "shippingeasy-stores-api-openapi.yml"
+  ],
+  "outputs": [
+    "shippingeasy-orders-api-openapi.yml",
+    "shippingeasy-stores-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
