@@ -62,8 +62,6 @@ apis:
     url: https://github.com/ShippingEasy/shippingeasy-api-examples
   - type: Signup
     url: https://app.shippingeasy.com/settings/api_credentials
-  - type: Support
-    url: api-questions@shippingeasy.com
 - aid: shippingeasy:shippingeasy-stores-api
   name: ShippingEasy Stores API
   description: API-enabled stores configured in the ShippingEasy account.
@@ -86,8 +84,6 @@ apis:
     url: https://github.com/ShippingEasy/shippingeasy-api-examples
   - type: Signup
     url: https://app.shippingeasy.com/settings/api_credentials
-  - type: Support
-    url: api-questions@shippingeasy.com
 common:
   - type: AgenticAccess
     url: agentic-access/shippingeasy-agentic-access.yml
