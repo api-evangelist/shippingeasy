@@ -1,0 +1,164 @@
+{
+  "item": [
+    {
+      "id": "eb7e3291-7e2c-444c-abdb-a512e2cdd37c",
+      "name": "Stores",
+      "description": {
+        "content": "API-enabled stores configured in the ShippingEasy account.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1061a2d2-7eea-4c3e-a36b-f9719941f043",
+          "name": "List API-Enabled Stores",
+          "request": {
+            "name": "List API-Enabled Stores",
+            "description": {
+              "content": "Return the API-enabled stores in the authenticated ShippingEasy account, including each store's `api_key` value used for store-scoped order calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47adaf3d-22d2-4efe-8718-052e6b8a13c0",
+              "name": "Stores list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"stores\": [\n    {\n      \"id\": 5290,\n      \"name\": \"string\",\n      \"platform\": \"string\",\n      \"api_key\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"id\": 6450,\n      \"name\": \"string\",\n      \"platform\": \"string\",\n      \"api_key\": \"string\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e46a075-2af7-4091-98c7-37037ec92cdf",
+              "name": "Missing or invalid signature.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.shippingeasy.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6d673ac6-a3da-4b4e-b122-e991ebf50cbf",
+    "name": "ShippingEasy Customer Orders Stores API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ShippingEasy Customer API lets a merchant push orders into their own\nShippingEasy account from a custom marketplace, storefront, or backoffice\nsystem that is not already covered by ShippingEasy's built-in integration\ncatalog. Authentication is HMAC-SHA256 signed; requests carry\n`api_key`, `api_timestamp`, and `api_signature` query parameters. The\nsignature is computed over the HTTP method, request path, and the\nalphabetically-sorted set of query parameters (excluding the signature\nitself) using the account's API secret.\n\n\nContact Support:\n Name: ShippingEasy API Support\n Email: api-questions@shippingeasy.com",
+      "type": "text/plain"
+    }
+  }
+}

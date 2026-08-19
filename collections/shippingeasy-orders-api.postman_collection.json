@@ -1,0 +1,1182 @@
+{
+  "item": [
+    {
+      "id": "12c59354-f7cf-46a2-a195-86c24bfda198",
+      "name": "Orders",
+      "description": {
+        "content": "Order create, look up, status update, and cancellation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e0d9c87-bc49-429a-949a-74156e6aeaa4",
+          "name": "Find Orders",
+          "request": {
+            "name": "Find Orders",
+            "description": {
+              "content": "Search orders across all API-enabled stores in the account, optionally filtered by order status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Optional order status filter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d84fa220-b49c-48c1-89b2-50040855baae",
+              "name": "Order search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"external_order_identifier\": \"string\",\n      \"ordered_at\": \"2025-11-27T07:53:01.430Z\",\n      \"order_status\": \"awaiting_payment\",\n      \"billing_company\": \"string\",\n      \"billing_first_name\": \"string\",\n      \"billing_last_name\": \"string\",\n      \"billing_address\": \"string\",\n      \"billing_address2\": \"string\",\n      \"billing_city\": \"string\",\n      \"billing_state\": \"string\",\n      \"billing_postal_code\": \"string\",\n      \"billing_country\": \"string\",\n      \"billing_phone_number\": \"string\",\n      \"billing_email\": \"string\",\n      \"recipients\": [\n        {\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"company\": \"string\",\n          \"address\": \"string\",\n          \"address2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\",\n          \"phone_number\": \"string\",\n          \"email\": \"string\",\n          \"items\": [\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"company\": \"string\",\n          \"address\": \"string\",\n          \"address2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\",\n          \"phone_number\": \"string\",\n          \"email\": \"string\",\n          \"items\": [\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"external_order_identifier\": \"string\",\n      \"ordered_at\": \"1979-02-13T10:53:45.241Z\",\n      \"order_status\": \"shipped\",\n      \"billing_company\": \"string\",\n      \"billing_first_name\": \"string\",\n      \"billing_last_name\": \"string\",\n      \"billing_address\": \"string\",\n      \"billing_address2\": \"string\",\n      \"billing_city\": \"string\",\n      \"billing_state\": \"string\",\n      \"billing_postal_code\": \"string\",\n      \"billing_country\": \"string\",\n      \"billing_phone_number\": \"string\",\n      \"billing_email\": \"string\",\n      \"recipients\": [\n        {\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"company\": \"string\",\n          \"address\": \"string\",\n          \"address2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\",\n          \"phone_number\": \"string\",\n          \"email\": \"string\",\n          \"items\": [\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"company\": \"string\",\n          \"address\": \"string\",\n          \"address2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\",\n          \"phone_number\": \"string\",\n          \"email\": \"string\",\n          \"items\": [\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"page\": 5653,\n    \"total_pages\": 3638,\n    \"total_count\": 384\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68da4187-6957-4c21-95be-19efa26a9e3d",
+              "name": "Missing or invalid signature.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4349bf0-321b-4b52-a357-2f4f1c5d6d41",
+          "name": "Find Order by ID",
+          "request": {
+            "name": "Find Order by ID",
+            "description": {
+              "content": "Return a single order by its ShippingEasy internal numeric identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ShippingEasy internal order identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8fa26ff0-a1ea-4b89-a9f0-a7a81762f0f5",
+              "name": "Order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ShippingEasy internal order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"order\": {\n    \"external_order_identifier\": \"string\",\n    \"ordered_at\": \"1955-11-19T15:53:15.168Z\",\n    \"order_status\": \"cancelled\",\n    \"billing_company\": \"string\",\n    \"billing_first_name\": \"string\",\n    \"billing_last_name\": \"string\",\n    \"billing_address\": \"string\",\n    \"billing_address2\": \"string\",\n    \"billing_city\": \"string\",\n    \"billing_state\": \"string\",\n    \"billing_postal_code\": \"string\",\n    \"billing_country\": \"string\",\n    \"billing_phone_number\": \"string\",\n    \"billing_email\": \"string\",\n    \"recipients\": [\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3284,\n            \"unit_price\": 1211.511702135639,\n            \"weight_in_ounces\": 7595.119023205358\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3732,\n            \"unit_price\": 936.6649641846136,\n            \"weight_in_ounces\": 4361.0188870172\n          }\n        ]\n      },\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 7639,\n            \"unit_price\": 265.1173497789394,\n            \"weight_in_ounces\": 1323.2461155899166\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 2656,\n            \"unit_price\": 9743.367727431309,\n            \"weight_in_ounces\": 1233.352269644219\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "634de898-e3d7-4467-8b71-2189a8513eec",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ShippingEasy internal order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60a42267-4db4-49b7-a614-a3d75dd00264",
+          "name": "Find Orders by Store",
+          "request": {
+            "name": "Find Orders by Store",
+            "description": {
+              "content": "Return orders scoped to a single API-enabled store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stores",
+                ":store_api_key",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_api_key",
+                  "description": "(Required) Per-store API key returned by GET /stores."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ac37ef1-b0d9-4a41-9e0f-81ea4f542c8b",
+              "name": "Orders list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"external_order_identifier\": \"string\",\n      \"ordered_at\": \"2025-11-27T07:53:01.430Z\",\n      \"order_status\": \"awaiting_payment\",\n      \"billing_company\": \"string\",\n      \"billing_first_name\": \"string\",\n      \"billing_last_name\": \"string\",\n      \"billing_address\": \"string\",\n      \"billing_address2\": \"string\",\n      \"billing_city\": \"string\",\n      \"billing_state\": \"string\",\n      \"billing_postal_code\": \"string\",\n      \"billing_country\": \"string\",\n      \"billing_phone_number\": \"string\",\n      \"billing_email\": \"string\",\n      \"recipients\": [\n        {\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"company\": \"string\",\n          \"address\": \"string\",\n          \"address2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\",\n          \"phone_number\": \"string\",\n          \"email\": \"string\",\n          \"items\": [\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"company\": \"string\",\n          \"address\": \"string\",\n          \"address2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\",\n          \"phone_number\": \"string\",\n          \"email\": \"string\",\n          \"items\": [\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"external_order_identifier\": \"string\",\n      \"ordered_at\": \"1979-02-13T10:53:45.241Z\",\n      \"order_status\": \"shipped\",\n      \"billing_company\": \"string\",\n      \"billing_first_name\": \"string\",\n      \"billing_last_name\": \"string\",\n      \"billing_address\": \"string\",\n      \"billing_address2\": \"string\",\n      \"billing_city\": \"string\",\n      \"billing_state\": \"string\",\n      \"billing_postal_code\": \"string\",\n      \"billing_country\": \"string\",\n      \"billing_phone_number\": \"string\",\n      \"billing_email\": \"string\",\n      \"recipients\": [\n        {\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"company\": \"string\",\n          \"address\": \"string\",\n          \"address2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\",\n          \"phone_number\": \"string\",\n          \"email\": \"string\",\n          \"items\": [\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"company\": \"string\",\n          \"address\": \"string\",\n          \"address2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\",\n          \"phone_number\": \"string\",\n          \"email\": \"string\",\n          \"items\": [\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"sku\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"unit_price\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"weight_in_ounces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"page\": 5653,\n    \"total_pages\": 3638,\n    \"total_count\": 384\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74d35e77-b32b-4e55-be45-208343eb2ef2",
+              "name": "Missing or invalid signature.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9ec9d4f-61f0-4a8e-b5c6-e687ce0d1a89",
+          "name": "Create Order",
+          "request": {
+            "name": "Create Order",
+            "description": {
+              "content": "Create a new order on the given API-enabled store. Orders are addressed by an `external_order_identifier` supplied by the caller and are routed into the merchant's normal ShippingEasy workflows.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stores",
+                ":store_api_key",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_api_key",
+                  "description": "(Required) Per-store API key returned by GET /stores."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order\": {\n    \"external_order_identifier\": \"<string>\",\n    \"ordered_at\": \"<dateTime>\",\n    \"order_status\": \"<string>\",\n    \"billing_company\": \"<string>\",\n    \"billing_first_name\": \"<string>\",\n    \"billing_last_name\": \"<string>\",\n    \"billing_address\": \"<string>\",\n    \"billing_address2\": \"<string>\",\n    \"billing_city\": \"<string>\",\n    \"billing_state\": \"<string>\",\n    \"billing_postal_code\": \"<string>\",\n    \"billing_country\": \"<string>\",\n    \"billing_phone_number\": \"<string>\",\n    \"billing_email\": \"<string>\",\n    \"recipients\": [\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"company\": \"<string>\",\n        \"address\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"email\": \"<string>\",\n        \"items\": [\n          {\n            \"sku\": \"<string>\",\n            \"name\": \"<string>\",\n            \"quantity\": \"<integer>\",\n            \"unit_price\": \"<float>\",\n            \"weight_in_ounces\": \"<float>\"\n          },\n          {\n            \"sku\": \"<string>\",\n            \"name\": \"<string>\",\n            \"quantity\": \"<integer>\",\n            \"unit_price\": \"<float>\",\n            \"weight_in_ounces\": \"<float>\"\n          }\n        ]\n      },\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"company\": \"<string>\",\n        \"address\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"email\": \"<string>\",\n        \"items\": [\n          {\n            \"sku\": \"<string>\",\n            \"name\": \"<string>\",\n            \"quantity\": \"<integer>\",\n            \"unit_price\": \"<float>\",\n            \"weight_in_ounces\": \"<float>\"\n          },\n          {\n            \"sku\": \"<string>\",\n            \"name\": \"<string>\",\n            \"quantity\": \"<integer>\",\n            \"unit_price\": \"<float>\",\n            \"weight_in_ounces\": \"<float>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff289f33-0e46-4c2a-91c2-9beb4dabae3e",
+              "name": "Order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": {\n    \"external_order_identifier\": \"string\",\n    \"ordered_at\": \"1955-11-19T15:53:15.168Z\",\n    \"order_status\": \"cancelled\",\n    \"billing_company\": \"string\",\n    \"billing_first_name\": \"string\",\n    \"billing_last_name\": \"string\",\n    \"billing_address\": \"string\",\n    \"billing_address2\": \"string\",\n    \"billing_city\": \"string\",\n    \"billing_state\": \"string\",\n    \"billing_postal_code\": \"string\",\n    \"billing_country\": \"string\",\n    \"billing_phone_number\": \"string\",\n    \"billing_email\": \"string\",\n    \"recipients\": [\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3284,\n            \"unit_price\": 1211.511702135639,\n            \"weight_in_ounces\": 7595.119023205358\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3732,\n            \"unit_price\": 936.6649641846136,\n            \"weight_in_ounces\": 4361.0188870172\n          }\n        ]\n      },\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 7639,\n            \"unit_price\": 265.1173497789394,\n            \"weight_in_ounces\": 1323.2461155899166\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 2656,\n            \"unit_price\": 9743.367727431309,\n            \"weight_in_ounces\": 1233.352269644219\n          }\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"order\": {\n    \"external_order_identifier\": \"string\",\n    \"ordered_at\": \"1955-11-19T15:53:15.168Z\",\n    \"order_status\": \"cancelled\",\n    \"billing_company\": \"string\",\n    \"billing_first_name\": \"string\",\n    \"billing_last_name\": \"string\",\n    \"billing_address\": \"string\",\n    \"billing_address2\": \"string\",\n    \"billing_city\": \"string\",\n    \"billing_state\": \"string\",\n    \"billing_postal_code\": \"string\",\n    \"billing_country\": \"string\",\n    \"billing_phone_number\": \"string\",\n    \"billing_email\": \"string\",\n    \"recipients\": [\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3284,\n            \"unit_price\": 1211.511702135639,\n            \"weight_in_ounces\": 7595.119023205358\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3732,\n            \"unit_price\": 936.6649641846136,\n            \"weight_in_ounces\": 4361.0188870172\n          }\n        ]\n      },\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 7639,\n            \"unit_price\": 265.1173497789394,\n            \"weight_in_ounces\": 1323.2461155899166\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 2656,\n            \"unit_price\": 9743.367727431309,\n            \"weight_in_ounces\": 1233.352269644219\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13320820-e760-4591-9ed3-8c3ee53b682f",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": {\n    \"external_order_identifier\": \"string\",\n    \"ordered_at\": \"1955-11-19T15:53:15.168Z\",\n    \"order_status\": \"cancelled\",\n    \"billing_company\": \"string\",\n    \"billing_first_name\": \"string\",\n    \"billing_last_name\": \"string\",\n    \"billing_address\": \"string\",\n    \"billing_address2\": \"string\",\n    \"billing_city\": \"string\",\n    \"billing_state\": \"string\",\n    \"billing_postal_code\": \"string\",\n    \"billing_country\": \"string\",\n    \"billing_phone_number\": \"string\",\n    \"billing_email\": \"string\",\n    \"recipients\": [\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3284,\n            \"unit_price\": 1211.511702135639,\n            \"weight_in_ounces\": 7595.119023205358\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3732,\n            \"unit_price\": 936.6649641846136,\n            \"weight_in_ounces\": 4361.0188870172\n          }\n        ]\n      },\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 7639,\n            \"unit_price\": 265.1173497789394,\n            \"weight_in_ounces\": 1323.2461155899166\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 2656,\n            \"unit_price\": 9743.367727431309,\n            \"weight_in_ounces\": 1233.352269644219\n          }\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4af8a78-fa69-453d-8beb-8688bd3d4504",
+          "name": "Find Order by External Order Number",
+          "request": {
+            "name": "Find Order by External Order Number",
+            "description": {
+              "content": "Return a single order by the caller-supplied external order number on the specified store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stores",
+                ":store_api_key",
+                "orders",
+                ":external_order_identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_api_key",
+                  "description": "(Required) Per-store API key returned by GET /stores."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "external_order_identifier",
+                  "description": "(Required) Caller-supplied unique order number for the order on the originating store."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df3876df-91f4-4395-a089-d7d667ef1116",
+              "name": "Order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders",
+                    ":external_order_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_order_identifier",
+                      "description": "(Required) Caller-supplied unique order number for the order on the originating store."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"order\": {\n    \"external_order_identifier\": \"string\",\n    \"ordered_at\": \"1955-11-19T15:53:15.168Z\",\n    \"order_status\": \"cancelled\",\n    \"billing_company\": \"string\",\n    \"billing_first_name\": \"string\",\n    \"billing_last_name\": \"string\",\n    \"billing_address\": \"string\",\n    \"billing_address2\": \"string\",\n    \"billing_city\": \"string\",\n    \"billing_state\": \"string\",\n    \"billing_postal_code\": \"string\",\n    \"billing_country\": \"string\",\n    \"billing_phone_number\": \"string\",\n    \"billing_email\": \"string\",\n    \"recipients\": [\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3284,\n            \"unit_price\": 1211.511702135639,\n            \"weight_in_ounces\": 7595.119023205358\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3732,\n            \"unit_price\": 936.6649641846136,\n            \"weight_in_ounces\": 4361.0188870172\n          }\n        ]\n      },\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 7639,\n            \"unit_price\": 265.1173497789394,\n            \"weight_in_ounces\": 1323.2461155899166\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 2656,\n            \"unit_price\": 9743.367727431309,\n            \"weight_in_ounces\": 1233.352269644219\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "741542b7-534a-4450-969e-a1050aa0ca26",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders",
+                    ":external_order_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_order_identifier",
+                      "description": "(Required) Caller-supplied unique order number for the order on the originating store."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdf70902-0ee6-4a27-9236-30c7087faa6d",
+          "name": "Update Order Status",
+          "request": {
+            "name": "Update Order Status",
+            "description": {
+              "content": "Update the order_status of a single order in the specified store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stores",
+                ":store_api_key",
+                "orders",
+                ":external_order_identifier",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_api_key",
+                  "description": "(Required) Per-store API key returned by GET /stores."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "external_order_identifier",
+                  "description": "(Required) Caller-supplied unique order number for the order on the originating store."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order\": {\n    \"order_status\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f36d585f-d298-4f1b-9078-b61f4f4364e2",
+              "name": "Order status updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders",
+                    ":external_order_identifier",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_order_identifier",
+                      "description": "(Required) Caller-supplied unique order number for the order on the originating store."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": {\n    \"order_status\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"order\": {\n    \"external_order_identifier\": \"string\",\n    \"ordered_at\": \"1955-11-19T15:53:15.168Z\",\n    \"order_status\": \"cancelled\",\n    \"billing_company\": \"string\",\n    \"billing_first_name\": \"string\",\n    \"billing_last_name\": \"string\",\n    \"billing_address\": \"string\",\n    \"billing_address2\": \"string\",\n    \"billing_city\": \"string\",\n    \"billing_state\": \"string\",\n    \"billing_postal_code\": \"string\",\n    \"billing_country\": \"string\",\n    \"billing_phone_number\": \"string\",\n    \"billing_email\": \"string\",\n    \"recipients\": [\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3284,\n            \"unit_price\": 1211.511702135639,\n            \"weight_in_ounces\": 7595.119023205358\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3732,\n            \"unit_price\": 936.6649641846136,\n            \"weight_in_ounces\": 4361.0188870172\n          }\n        ]\n      },\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 7639,\n            \"unit_price\": 265.1173497789394,\n            \"weight_in_ounces\": 1323.2461155899166\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 2656,\n            \"unit_price\": 9743.367727431309,\n            \"weight_in_ounces\": 1233.352269644219\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3466bea1-5b10-4307-a964-81b9fa746841",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders",
+                    ":external_order_identifier",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_order_identifier",
+                      "description": "(Required) Caller-supplied unique order number for the order on the originating store."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": {\n    \"order_status\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8929114-4b50-4e8e-8972-f7e0d9617c70",
+          "name": "Cancel Order",
+          "request": {
+            "name": "Cancel Order",
+            "description": {
+              "content": "Cancel a single order on the specified store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stores",
+                ":store_api_key",
+                "orders",
+                ":order_number",
+                "cancellations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "store_api_key",
+                  "description": "(Required) Per-store API key returned by GET /stores."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "order_number",
+                  "description": "(Required) Store-scoped order number."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c43326b-89a4-486d-950b-f66ceacee51b",
+              "name": "Order cancelled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders",
+                    ":order_number",
+                    "cancellations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_number",
+                      "description": "(Required) Store-scoped order number."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"order\": {\n    \"external_order_identifier\": \"string\",\n    \"ordered_at\": \"1955-11-19T15:53:15.168Z\",\n    \"order_status\": \"cancelled\",\n    \"billing_company\": \"string\",\n    \"billing_first_name\": \"string\",\n    \"billing_last_name\": \"string\",\n    \"billing_address\": \"string\",\n    \"billing_address2\": \"string\",\n    \"billing_city\": \"string\",\n    \"billing_state\": \"string\",\n    \"billing_postal_code\": \"string\",\n    \"billing_country\": \"string\",\n    \"billing_phone_number\": \"string\",\n    \"billing_email\": \"string\",\n    \"recipients\": [\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3284,\n            \"unit_price\": 1211.511702135639,\n            \"weight_in_ounces\": 7595.119023205358\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 3732,\n            \"unit_price\": 936.6649641846136,\n            \"weight_in_ounces\": 4361.0188870172\n          }\n        ]\n      },\n      {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"company\": \"string\",\n        \"address\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": \"string\",\n        \"phone_number\": \"string\",\n        \"email\": \"string\",\n        \"items\": [\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 7639,\n            \"unit_price\": 265.1173497789394,\n            \"weight_in_ounces\": 1323.2461155899166\n          },\n          {\n            \"sku\": \"string\",\n            \"name\": \"string\",\n            \"quantity\": 2656,\n            \"unit_price\": 9743.367727431309,\n            \"weight_in_ounces\": 1233.352269644219\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5299392d-1eb1-4c47-a97d-03eb938cd223",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stores",
+                    ":store_api_key",
+                    "orders",
+                    ":order_number",
+                    "cancellations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "store_api_key",
+                      "description": "(Required) Per-store API key returned by GET /stores."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_number",
+                      "description": "(Required) Store-scoped order number."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.shippingeasy.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c76f2941-f6d8-4c00-8898-ddaf062c9850",
+    "name": "ShippingEasy Customer Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ShippingEasy Customer API lets a merchant push orders into their own\nShippingEasy account from a custom marketplace, storefront, or backoffice\nsystem that is not already covered by ShippingEasy's built-in integration\ncatalog. Authentication is HMAC-SHA256 signed; requests carry\n`api_key`, `api_timestamp`, and `api_signature` query parameters. The\nsignature is computed over the HTTP method, request path, and the\nalphabetically-sorted set of query parameters (excluding the signature\nitself) using the account's API secret.\n\n\nContact Support:\n Name: ShippingEasy API Support\n Email: api-questions@shippingeasy.com",
+      "type": "text/plain"
+    }
+  }
+}

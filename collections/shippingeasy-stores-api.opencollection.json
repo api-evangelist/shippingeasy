@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ShippingEasy Customer Orders Stores API",
+    "version": "1.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List API-Enabled Stores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.shippingeasy.com/api/stores"
+          },
+          "docs": "Return the API-enabled stores in the authenticated ShippingEasy account, including each store's `api_key` value used for store-scoped order calls."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
