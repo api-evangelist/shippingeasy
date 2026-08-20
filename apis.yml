@@ -33,6 +33,15 @@ tags:
   - Multi-Carrier
   - Labels
   - Order Management
+  - E-Commerce
+  - Auctane
+  - Stamps.com
+tags_raw:
+  - Shipping
+  - Logistics
+  - Multi-Carrier
+  - Labels
+  - Order Management
   - Ecommerce
   - Auctane
   - Stamps.com
@@ -46,6 +55,8 @@ apis:
   humanURL: https://shippingeasy.readme.io/reference/getting-started
   baseURL: https://app.shippingeasy.com/api
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
