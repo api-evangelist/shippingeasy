@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: ShippingEasy Customer Orders API
   version: '1.2'
@@ -8,17 +8,7 @@ info:
 
     system that is not already covered by ShippingEasy''s built-in integration
 
-    catalog. Authentication is HMAC-SHA256 signed; requests carry
-
-    `api_key`, `api_timestamp`, and `api_signature` query parameters. The
-
-    signature is computed over the HTTP method, request path, and the
-
-    alphabetically-sorted set of query parameters (excluding the signature
-
-    itself) using the account''s API secret.
-
-    '
+    catalog.'
   contact:
     name: ShippingEasy API Support
     email: api-questions@shippingeasy.com
@@ -216,46 +206,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    StoreApiKey:
-      in: path
-      name: store_api_key
-      required: true
-      schema:
-        type: string
-      description: Per-store API key returned by GET /stores.
-    ExternalOrderIdentifier:
-      in: path
-      name: external_order_identifier
-      required: true
-      schema:
-        type: string
-      description: Caller-supplied unique order number for the order on the originating store.
-  responses:
-    Unauthorized:
-      description: Missing or invalid signature.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unprocessable:
-      description: Validation error.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    OrderEnvelope:
-      type: object
-      properties:
-        order:
-          $ref: '#/components/schemas/Order'
     Order:
       type: object
       properties:
@@ -299,6 +250,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Recipient'
+    LineItem:
+      type: object
+      properties:
+        sku:
+          type: string
+        name:
+          type: string
+        quantity:
+          type: integer
+        unit_price:
+          type: number
+          format: float
+        weight_in_ounces:
+          type: number
+          format: float
     OrderList:
       type: object
       properties:
@@ -315,30 +281,6 @@ components:
               type: integer
             total_count:
               type: integer
-    LineItem:
-      type: object
-      properties:
-        sku:
-          type: string
-        name:
-          type: string
-        quantity:
-          type: integer
-        unit_price:
-          type: number
-          format: float
-        weight_in_ounces:
-          type: number
-          format: float
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-        message:
-          type: string
     Recipient:
       type: object
       properties:
@@ -368,6 +310,54 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LineItem'
+    OrderEnvelope:
+      type: object
+      properties:
+        order:
+          $ref: '#/components/schemas/Order'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+        message:
+          type: string
+  responses:
+    Unprocessable:
+      description: Validation error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid signature.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    StoreApiKey:
+      in: path
+      name: store_api_key
+      required: true
+      schema:
+        type: string
+      description: Per-store API key returned by GET /stores.
+    ExternalOrderIdentifier:
+      in: path
+      name: external_order_identifier
+      required: true
+      schema:
+        type: string
+      description: Caller-supplied unique order number for the order on the originating store.
   securitySchemes:
     apiKey:
       type: apiKey

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: ShippingEasy Customer Orders Stores API
+  title: ShippingEasy Customer Stores API
   version: '1.2'
   description: 'The ShippingEasy Customer API lets a merchant push orders into their own
 
@@ -8,17 +8,7 @@ info:
 
     system that is not already covered by ShippingEasy''s built-in integration
 
-    catalog. Authentication is HMAC-SHA256 signed; requests carry
-
-    `api_key`, `api_timestamp`, and `api_signature` query parameters. The
-
-    signature is computed over the HTTP method, request path, and the
-
-    alphabetically-sorted set of query parameters (excluding the signature
-
-    itself) using the account''s API secret.
-
-    '
+    catalog.'
   contact:
     name: ShippingEasy API Support
     email: api-questions@shippingeasy.com
@@ -54,21 +44,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid signature.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    StoreList:
-      type: object
-      properties:
-        stores:
-          type: array
-          items:
-            $ref: '#/components/schemas/Store'
     Error:
       type: object
       properties:
@@ -92,6 +68,20 @@ components:
           description: Per-store API key used to scope order calls.
         status:
           type: string
+    StoreList:
+      type: object
+      properties:
+        stores:
+          type: array
+          items:
+            $ref: '#/components/schemas/Store'
+  responses:
+    Unauthorized:
+      description: Missing or invalid signature.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKey:
       type: apiKey
