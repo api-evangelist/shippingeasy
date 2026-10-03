@@ -207,6 +207,63 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    OrderEnvelope:
+      type: object
+      properties:
+        order:
+          $ref: '#/components/schemas/Order'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+        message:
+          type: string
+    Order:
+      type: object
+      properties:
+        external_order_identifier:
+          type: string
+        ordered_at:
+          type: string
+          format: date-time
+        order_status:
+          type: string
+          enum:
+          - awaiting_payment
+          - awaiting_shipment
+          - ready_for_shipment
+          - shipped
+          - on_hold
+          - cancelled
+        billing_company:
+          type: string
+        billing_first_name:
+          type: string
+        billing_last_name:
+          type: string
+        billing_address:
+          type: string
+        billing_address2:
+          type: string
+        billing_city:
+          type: string
+        billing_state:
+          type: string
+        billing_postal_code:
+          type: string
+        billing_country:
+          type: string
+        billing_phone_number:
+          type: string
+        billing_email:
+          type: string
+        recipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
     Recipient:
       type: object
       properties:
@@ -251,49 +308,6 @@ components:
         weight_in_ounces:
           type: number
           format: float
-    Order:
-      type: object
-      properties:
-        external_order_identifier:
-          type: string
-        ordered_at:
-          type: string
-          format: date-time
-        order_status:
-          type: string
-          enum:
-          - awaiting_payment
-          - awaiting_shipment
-          - ready_for_shipment
-          - shipped
-          - on_hold
-          - cancelled
-        billing_company:
-          type: string
-        billing_first_name:
-          type: string
-        billing_last_name:
-          type: string
-        billing_address:
-          type: string
-        billing_address2:
-          type: string
-        billing_city:
-          type: string
-        billing_state:
-          type: string
-        billing_postal_code:
-          type: string
-        billing_country:
-          type: string
-        billing_phone_number:
-          type: string
-        billing_email:
-          type: string
-        recipients:
-          type: array
-          items:
-            $ref: '#/components/schemas/Recipient'
     OrderList:
       type: object
       properties:
@@ -310,44 +324,15 @@ components:
               type: integer
             total_count:
               type: integer
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-        message:
-          type: string
-    OrderEnvelope:
-      type: object
-      properties:
-        order:
-          $ref: '#/components/schemas/Order'
-  parameters:
-    ExternalOrderIdentifier:
-      in: path
-      name: external_order_identifier
-      required: true
-      schema:
-        type: string
-      description: Caller-supplied unique order number for the order on the originating store.
-    StoreApiKey:
-      in: path
-      name: store_api_key
-      required: true
-      schema:
-        type: string
-      description: Per-store API key returned by GET /stores.
   responses:
-    Unprocessable:
-      description: Validation error.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found.
+    Unprocessable:
+      description: Validation error.
       content:
         application/json:
           schema:
@@ -358,6 +343,21 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    StoreApiKey:
+      in: path
+      name: store_api_key
+      required: true
+      schema:
+        type: string
+      description: Per-store API key returned by GET /stores.
+    ExternalOrderIdentifier:
+      in: path
+      name: external_order_identifier
+      required: true
+      schema:
+        type: string
+      description: Caller-supplied unique order number for the order on the originating store.
   securitySchemes:
     apiKey:
       type: apiKey
