@@ -206,12 +206,22 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    ExternalOrderIdentifier:
+      in: path
+      name: external_order_identifier
+      required: true
+      schema:
+        type: string
+      description: Caller-supplied unique order number for the order on the originating store.
+    StoreApiKey:
+      in: path
+      name: store_api_key
+      required: true
+      schema:
+        type: string
+      description: Per-store API key returned by GET /stores.
   schemas:
-    OrderEnvelope:
-      type: object
-      properties:
-        order:
-          $ref: '#/components/schemas/Order'
     Error:
       type: object
       properties:
@@ -221,6 +231,71 @@ components:
             type: string
         message:
           type: string
+    Recipient:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        company:
+          type: string
+        address:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
+        phone_number:
+          type: string
+        email:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+    OrderEnvelope:
+      type: object
+      properties:
+        order:
+          $ref: '#/components/schemas/Order'
+    OrderList:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        meta:
+          type: object
+          properties:
+            page:
+              type: integer
+            total_pages:
+              type: integer
+            total_count:
+              type: integer
+    LineItem:
+      type: object
+      properties:
+        sku:
+          type: string
+        name:
+          type: string
+        quantity:
+          type: integer
+        unit_price:
+          type: number
+          format: float
+        weight_in_ounces:
+          type: number
+          format: float
     Order:
       type: object
       properties:
@@ -264,66 +339,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Recipient'
-    Recipient:
-      type: object
-      properties:
-        first_name:
-          type: string
-        last_name:
-          type: string
-        company:
-          type: string
-        address:
-          type: string
-        address2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        postal_code:
-          type: string
-        country:
-          type: string
-        phone_number:
-          type: string
-        email:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineItem'
-    LineItem:
-      type: object
-      properties:
-        sku:
-          type: string
-        name:
-          type: string
-        quantity:
-          type: integer
-        unit_price:
-          type: number
-          format: float
-        weight_in_ounces:
-          type: number
-          format: float
-    OrderList:
-      type: object
-      properties:
-        orders:
-          type: array
-          items:
-            $ref: '#/components/schemas/Order'
-        meta:
-          type: object
-          properties:
-            page:
-              type: integer
-            total_pages:
-              type: integer
-            total_count:
-              type: integer
   responses:
     NotFound:
       description: Resource not found.
@@ -343,21 +358,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    StoreApiKey:
-      in: path
-      name: store_api_key
-      required: true
-      schema:
-        type: string
-      description: Per-store API key returned by GET /stores.
-    ExternalOrderIdentifier:
-      in: path
-      name: external_order_identifier
-      required: true
-      schema:
-        type: string
-      description: Caller-supplied unique order number for the order on the originating store.
   securitySchemes:
     apiKey:
       type: apiKey

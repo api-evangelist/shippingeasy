@@ -54,13 +54,6 @@ components:
             type: string
         message:
           type: string
-    StoreList:
-      type: object
-      properties:
-        stores:
-          type: array
-          items:
-            $ref: '#/components/schemas/Store'
     Store:
       type: object
       properties:
@@ -75,6 +68,13 @@ components:
           description: Per-store API key used to scope order calls.
         status:
           type: string
+    StoreList:
+      type: object
+      properties:
+        stores:
+          type: array
+          items:
+            $ref: '#/components/schemas/Store'
   responses:
     Unauthorized:
       description: Missing or invalid signature.
