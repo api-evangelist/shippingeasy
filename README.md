@@ -1,4 +1,4 @@
-# ShippingEasy (shippingeasy)
+# ShippingEasy
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,79 +66,104 @@
 
 ShippingEasy is an Austin, Texas shipping software platform for online merchants, providing multi-carrier label printing with discounted USPS, UPS, FedEx, and DHL rates, automated order import and workflow rules, inventory and product management, branded tracking, customer email marketing, and reporting. ShippingEasy was acquired by Stamps.com in 2016 and is part of the Auctane portfolio of shipping brands, which also includes ShipStation, ShipEngine, ShipWorks, MetaPack, Packlink, and Endicia. The company exposes a public Customer API focused on sending orders into ShippingEasy from custom marketplaces or storefronts not already covered by the built-in integration catalog; for fuller multi-carrier label, rate, and tracking APIs, ShippingEasy directs developers to sister brand ShipEngine.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/shippingeasy/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/shippingeasy/refs/heads/main/apis.yml)
+**Areas:** Shipping · Logistics · Multi-Carrier · Labels · Order Management · E-Commerce · Auctane · Stamps.com
 
-## Tags
+## ShippingEasy on APIs.io
 
-- Shipping
-- Logistics
-- Multi-Carrier
-- Labels
-- Order Management
-- Ecommerce
-- Auctane
-- Stamps.com
+Everything profiled for ShippingEasy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/shippingeasy/](https://apis.io/providers/shippingeasy/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (2)
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+- [ShippingEasy Orders API](https://apis.io/apis/shippingeasy/shippingeasy-orders-api/) — Order create, look up, status update, and cancellation.
+- [ShippingEasy Stores API](https://apis.io/apis/shippingeasy/shippingeasy-stores-api/) — API-enabled stores configured in the ShippingEasy account.
 
-## APIs
+### Published properties
 
-### ShippingEasy Customer API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The ShippingEasy Customer API is an HMAC-SHA256 signed REST API that lets a merchant push orders into their own ShippingEasy account from a custom marketplace, storefront, or backoffice system that is not already covered by ShippingEasy's built-in integration catalog (Shopify, Amazon, eBay, WooCommerce, BigCommerce, Magento, Etsy, Walmart, Squarespace, etc.). Operations cover listing API-enabled stores, creating an order, looking up orders by ID, external order number, or store, updating order status, and cancelling an order. Credentials (API key, API secret, and per-store API key) are generated inside the ShippingEasy UI at Settings > Account Settings > API Credentials.
+#### Agentic access (1)
 
-- **Human URL:** [https://shippingeasy.readme.io/reference/getting-started](https://shippingeasy.readme.io/reference/getting-started)
-- **Base URL:** `https://app.shippingeasy.com/api`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Shippingeasy Agentic Access](https://apis.io/agentic-access/shippingeasy/shippingeasy-agentic-access/)
 
-- Orders
-- Stores
-- Order Management
-- Shipping
-- Ecommerce
+#### Collections (3)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://shippingeasy.readme.io/reference/getting-started)
-- [API Reference](https://shippingeasy.readme.io/reference/getting-started)
-- [Authentication](https://shippingeasy.readme.io/reference/authentication-signing-requests)
-- [Rate Limits](https://shippingeasy.readme.io/reference/rate-limits-and-throttling)
-- [OpenAPI](openapi/shippingeasy-customer-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/shippingeasy-customer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/shippingeasy-customer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](https://github.com/ShippingEasy/shippingeasy-api-examples) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Signup](https://app.shippingeasy.com/settings/api_credentials)
-- [Support](api-questions@shippingeasy.com)
+- [ShippingEasy Customer API](https://apis.io/collections/shippingeasy/open-shippingeasy-customer-api/)
+- [ShippingEasy Customer Orders API](https://apis.io/collections/shippingeasy/open-shippingeasy-orders-api/)
+- [ShippingEasy Customer Orders Stores API](https://apis.io/collections/shippingeasy/open-shippingeasy-stores-api/)
 
-## Common Properties
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Shippingeasy Authentication](https://apis.io/security/shippingeasy/shippingeasy-authentication/)
+- [Shippingeasy Domain Security](https://apis.io/security/shippingeasy/shippingeasy-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://shippingeasy.com)
-- [Pricing](https://shippingeasy.com/pricing/)
-- [Features](https://shippingeasy.com/features/)
-- [Integrations](https://shippingeasy.com/integrationpartners/)
-- [Shipping A P I](https://shippingeasy.com/shipping-api/)
 - [Documentation](https://shippingeasy.readme.io/reference/getting-started)
-- [Signup](https://app.shippingeasy.com/customer/new)
-- [Login](https://app.shippingeasy.com/login)
-- [A P I Credentials](https://app.shippingeasy.com/settings/api_credentials)
+- [Pricing](https://shippingeasy.com/pricing/)
 - [Support](https://support.shippingeasy.com)
 - [Blog](https://shippingeasy.com/blog/)
-- [Careers](https://shippingeasy.com/careers/)
-- [Parent](https://auctane.com)
-- [Sister Brand](https://www.shipengine.com/)
-- [GitHub Organization](https://github.com/ShippingEasy)
-- [Twitter](https://twitter.com/ShippingEasy)
-- [LinkedIn](https://www.linkedin.com/company/shippingeasy)
-- [Facebook](https://www.facebook.com/ShippingEasy)
-- [YouTube](https://www.youtube.com/user/ShippingEasy)
-- [Terms of Service](https://shippingeasy.com/terms-of-service/)
-- [Privacy Policy](https://shippingeasy.com/privacy-policy/)
+- [Terms of service](https://shippingeasy.com/terms-of-service/)
+- [Privacy policy](https://shippingeasy.com/privacy-policy/)
+- [GitHub](https://github.com/ShippingEasy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 50.5 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 27.6 |
+
+**Agent readiness 21.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.3** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/shippingeasy/](https://apis.io/providers/shippingeasy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ShippingEasy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/shippingeasy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
